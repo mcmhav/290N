@@ -1,2 +1,1 @@
-vegaen@linux04.engr.ucsb.edu
-vegaen@linux06.engr.ucsb.edu
+ ubuntu@ec2-54-214-154-149.us-west-2.compute.amazonaws.com

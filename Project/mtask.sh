@@ -11,6 +11,7 @@ AUTHORS="Vegar Engen <vegar.engen@gmail.com>"
 hosts="hosts.txt"
 script="script.sh"
 identity="~/.ssh/id_rsa"
+#identity="supakey.pem"
 #
 # help_mtask
 #
@@ -53,7 +54,7 @@ defaults_mtask()
 # Main
 
 
-while getopts hvdl:s: opt
+while getopts hvdl:s:i: opt
 do
 	case "$opt" in 
 		h) help_mtask;;
@@ -70,7 +71,7 @@ a=0
 while read line
 do 
 	a=$(($a+1));
-	scp $script $line:
+	scp  -i $identity $script $line:
 	ssh -t -i $identity $line <<EOF
 
 		chmod +x $script
