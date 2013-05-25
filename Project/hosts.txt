@@ -1,1 +1,1 @@
- ubuntu@ec2-54-214-154-149.us-west-2.compute.amazonaws.com
+ec2-54-214-82-145.us-west-2.compute.amazonaws.com
