@@ -1,1 +1,2 @@
-ec2-54-214-82-145.us-west-2.compute.amazonaws.com
+vegaen@kenny.cs.ucsb.edu
+vegaen@linux06.engr.ucsb.edu

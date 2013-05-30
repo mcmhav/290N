@@ -75,8 +75,8 @@ parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.1')
 parser.add_argument('-i', '--identity', nargs='?', help = 'Specify rsa key to use', dest='key_file', default=os.path.join(os.environ['HOME'], '.ssh', 'id_rsa'))
 parser.add_argument('-t', '--hosts', nargs='?', help = 'File with list of hosts', dest='hosts_file', default='hosts.txt')
 parser.add_argument('-s', '--script', nargs='?', help = 'Specifies the script to run on each host', dest='script', default='scripy.sh')
-parser.add_argument('-o', '--options', nargs=2, action="append")
-parser.add_argument('--as-array', nargs=2, action="append" )
+parser.add_argument('-o', '--options', nargs=2, action="append", help= 'Add an option to be sent as argument for the script')
+parser.add_argument('--as-array', nargs=2, action="append", help= 'Adds an option to the script and converts a file to an array of strings' )
 args = parser.parse_args()
 print args
 
@@ -112,7 +112,7 @@ with open(args.hosts_file) as f:
 print args.key_file
 
 for host in hosts:
-
+    host = host.replace("\n", "")
     username = ''
     if host.find('@') >= 0:
         username, hostname = host.split('@')
@@ -123,7 +123,6 @@ for host in hosts:
     port = 22
     if hostname.find(':') >= 0: 
         hostname, portstr = hostname.split(':')
-        hostname = hostname.replace('\n', "")
         port = int(portstr)
 
     print "USERNAME: %s \nHOSTNAME: %s\nPORT: %d"%(username, hostname, port) 
@@ -193,10 +192,7 @@ for host in hosts:
         chan = t.open_session()
         chan.exec_command("chmod +x %s; ./%s %s ;rm %s"%(script, script, script_args, script))
 
-
         t.close()
-
-
 
 
     except Exception, e:
