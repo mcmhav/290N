@@ -1,1 +1,1 @@
- ubuntu@ec2-54-214-154-149.us-west-2.compute.amazonaws.com
+vegaen@kenny.cs.ucsb.edu:22
