@@ -1,1 +1,1 @@
-vegaen@kenny.cs.ucsb.edu:22
+ec2-54-214-82-145.us-west-2.compute.amazonaws.com

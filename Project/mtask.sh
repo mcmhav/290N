@@ -63,6 +63,7 @@ do
 		l) hosts="$OPTARG";;
 		s) script="$OPTARG";;
 		i) identity="$OPTARG";;
+		?) help_mtask;;
 	esac
 done
 
