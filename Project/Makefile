@@ -4,6 +4,14 @@
 #	rm -f $(RMFILES)
 #	clear
 
+# If the first argument is "run"...
+ifeq (push,$(firstword $(MAKECMDGOALS)))
+  # use the rest as arguments for "run"
+  MESSAGE := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  # ...and turn them into do-nothing targets
+  $(eval $(MESSAGE):;@:)
+endif
+
 push:
 #	rm -f $(RMFILES)
-	git add -u && git commit -m $(m) && git push
+	git commit -am $(MESSAGE) && git pull && git push
