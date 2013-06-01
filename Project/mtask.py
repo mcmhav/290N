@@ -187,8 +187,11 @@ for host in hosts:
         print '*** Here we go!'
         print 
         chan = t.open_session()
-        chan.exec_command("chmod +x %s; ./%s %s ;rm %s"%(args.script, args.script, script_args, args.script))
-
+        command = "chmod +x %s; ./%s %s ;rm %s"%(args.script, args.script, script_args, args.script)
+        chan.exec_command(command)
+        chan = t.open_session()
+        chan.exec_command("echo %s >> log.log"%command)
+        
         t.close()
 
 
