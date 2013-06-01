@@ -20,9 +20,6 @@ import argparse
 import paramiko
 
 
-hosts="hosts.txt"
-script="script.sh"
-
 def agent_auth(transport, username):
     """
     Attempt to authenticate to the given transport using any of the private
@@ -74,7 +71,7 @@ parser.add_argument('-f', '--foo', help='foo help')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.1')
 parser.add_argument('-i', '--identity', nargs='?', help = 'Specify rsa key to use', dest='key_file', default=os.path.join(os.environ['HOME'], '.ssh', 'id_rsa'))
 parser.add_argument('-t', '--hosts', nargs='?', help = 'File with list of hosts', dest='hosts_file', default='hosts.txt')
-parser.add_argument('-s', '--script', nargs='?', help = 'Specifies the script to run on each host', dest='script', default='scripy.sh')
+parser.add_argument('-s', '--script', nargs='?', help = 'Specifies the script to run on each host', dest='script', default='script.sh')
 parser.add_argument('-o', '--options', nargs=2, action="append", help= 'Add an option to be sent as argument for the script')
 parser.add_argument('--as-array', nargs=2, action="append", help= 'Adds an option to the script and converts a file to an array of strings' )
 args = parser.parse_args()
@@ -89,12 +86,12 @@ if args.as_array:
         with open(option[1]) as f:
             lines = f.readlines()
 
-        o = "'"
+        o = "\""
 
         for line in lines:
             o += " %s"% line
 
-        o += "'"
+        o += "\""
         script_args = script_args + o.replace("\n", "")
 
 
@@ -184,14 +181,17 @@ for host in hosts:
 
         
         sftp = paramiko.SFTPClient.from_transport(t)
-        sftp.put(script, script)
+        sftp.put(args.script, args.script)
 
 
         print '*** Here we go!'
         print 
         chan = t.open_session()
-        chan.exec_command("chmod +x %s; ./%s %s ;rm %s"%(script, script, script_args, script))
-
+        command = "chmod +x %s; ./%s %s ;rm %s"%(args.script, args.script, script_args, args.script)
+        chan.exec_command(command)
+        chan = t.open_session()
+        chan.exec_command("echo '%s' >> log.log"%command)
+        
         t.close()
 
 
