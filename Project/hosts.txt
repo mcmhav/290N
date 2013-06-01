@@ -1,2 +1,3 @@
-vegaen@kenny.cs.ucsb.edu
-vegaen@linux06.engr.ucsb.edu
+ubuntu@ec2-50-112-24-43.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-244-179-225.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-154-184.us-west-2.compute.amazonaws.com
