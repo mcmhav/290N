@@ -6,4 +6,4 @@
 
 push:
 #	rm -f $(RMFILES)
-	git add -u && git commit -m "autopush" && git push
+	git add -u && git commit -m $(m) && git push
