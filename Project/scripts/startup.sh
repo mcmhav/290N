@@ -61,8 +61,8 @@ zookP="$zookP$master.us-west-2.compute.internal:9983"
 if [ "$self" = "$master" ] 
 then 
 	echo "$self found in master" >> ~/startup.log
-	echo "java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun -DzkHost=$zookP -DnumShards=2 -jar start.jar" >> ~/startup.log
-	screen -dmS "node" java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun -DzkHost=$zookP -DnumShards=10 -jar start.jar
+	echo "java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -DnumShards=2 -jar start.jar" >> ~/startup.log
+	screen -dmS "node" java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DnumShards=4 -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -jar start.jar
 	exit 0
 fi
 
@@ -71,8 +71,8 @@ containsElement "${zook[@]}"
 if [ $? = 1 ] 
 then 
 	echo "$self found zookeeper" >> ~/startup.log
-	echo "java -Djetty.port=7574 -DzkRun -DzkHost=$zookP -jar start.jar" >> ~/startup.log
-	screen -dmS "node" java -DzkRun -DzkHost=$zookP -jar start.jar
+	echo "java -Djetty.port=7574 -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -jar start.jar" >> ~/startup.log
+	screen -dmS "node" java -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -jar start.jar
 	exit 0
 fi
 
@@ -86,4 +86,4 @@ then
 	exit 0
 fi
 
-echo "Couldn't find myself" >> ~/startupk.log	
+echo "Couldn't find myself" >> ~/startupk.log	java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun -DzkHost=ip-10-245-119-115.us-west-2.compute.internal:9983,ip-10-245-112-251.us-west-2.compute.internal:9983 -DnumShards=2 -jar start.jar
