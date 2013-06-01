@@ -86,12 +86,12 @@ if args.as_array:
         with open(option[1]) as f:
             lines = f.readlines()
 
-        o = "'"
+        o = "\""
 
         for line in lines:
             o += " %s"% line
 
-        o += "'"
+        o += "\""
         script_args = script_args + o.replace("\n", "")
 
 
