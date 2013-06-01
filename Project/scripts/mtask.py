@@ -108,6 +108,7 @@ with open(args.hosts_file) as f:
 
 print args.key_file
 
+counter = 0
 for host in hosts:
     host = host.replace("\n", "")
     username = ''
@@ -122,8 +123,9 @@ for host in hosts:
         hostname, portstr = hostname.split(':')
         port = int(portstr)
 
+    counter += 1
     print "USERNAME: %s \nHOSTNAME: %s\nPORT: %d"%(username, hostname, port) 
-
+    print "Host nr: %d" % counter
     # now connect
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
