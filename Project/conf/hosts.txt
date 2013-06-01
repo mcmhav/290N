@@ -1,3 +1,13 @@
+ubuntu@ec2-54-214-128-100.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-178-21.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-199-89.us-west-2.compute.amazonaws.com
+ubuntu@ec2-50-112-202-8.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-161-118.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-198-29.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-80-230.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-244-179-75.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-198-74.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-244-129-51.us-west-2.compute.amazonaws.com
 ubuntu@ec2-54-214-131-73.us-west-2.compute.amazonaws.com
 ubuntu@ec2-54-214-157-90.us-west-2.compute.amazonaws.com
 ubuntu@ec2-54-214-131-188.us-west-2.compute.amazonaws.com
