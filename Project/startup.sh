@@ -19,6 +19,7 @@ help_startup()
 #
 # version_mtask
 #
+
 version_startup() 
 {
 	echo "$APP_NAME"
@@ -41,6 +42,9 @@ done
 
 self="$HOSTNAME"
 
+killall java
+cd solr-4.3.0/build
+
 containsElement () {
   for N in ${@:1}; do [[ "$N" == "$self" ]] && return 1; done
   return 0
@@ -57,7 +61,7 @@ zookP="$zookP$master.us-west-2.compute.internal:9983"
 if [ "$self" = "$master" ] 
 then 
 	echo "$self found in master"
-	java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun -DzkHost=$zookP -DnumShards=2 -jar start.jar
+	screen -dmS "node" java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun -DzkHost=$zookP -DnumShards=2 -jar start.jar
 	exit 0
 fi
 
@@ -66,7 +70,7 @@ containsElement "${zook[@]}"
 if [ $? = 1 ] 
 then 
 	echo "$self found zookeeper"
-	java -Djetty.port=7574 -DzkRun -DzkHost=$zookP -jar start.jar
+	screen -dmS "node" java -Djetty.port=7574 -DzkRun -DzkHost=$zookP -jar start.jar
 	exit 0
 fi
 
@@ -75,7 +79,7 @@ containsElement "${zoo[@]}"
 if [ $? = 1 ] 
 then 
 	echo "$self found in zoo"
-	java -Djetty.port=7574 -DzkHost=$zookP -jar start.jar
+	screen -dmS "node" java -Djetty.port=7574 -DzkHost=$zookP -jar start.jar
 	exit 0
 fi
 

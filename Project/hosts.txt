@@ -8,3 +8,4 @@ ubuntu@ec2-54-214-79-236.us-west-2.compute.amazonaws.com
 ubuntu@ec2-54-214-145-225.us-west-2.compute.amazonaws.com
 ubuntu@ec2-54-214-134-223.us-west-2.compute.amazonaws.com
 ubuntu@ec2-54-214-201-94.us-west-2.compute.amazonaws.com
+
