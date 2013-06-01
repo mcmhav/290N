@@ -60,7 +60,7 @@ zookP="$zookP$master.us-west-2.compute.internal:9983"
 #check if master
 if [ "$self" = "$master" ] 
 then 
-	echo "$self found in master"
+	echo "$self found in master" >> ~/startup.log
 	screen -dmS "node" java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun -DzkHost=$zookP -DnumShards=2 -jar start.jar
 	exit 0
 fi
@@ -69,7 +69,7 @@ fi
 containsElement "${zook[@]}"
 if [ $? = 1 ] 
 then 
-	echo "$self found zookeeper"
+	echo "$self found zookeeper" >> ~/startup.log
 	screen -dmS "node" java -Djetty.port=7574 -DzkRun -DzkHost=$zookP -jar start.jar
 	exit 0
 fi
@@ -78,8 +78,9 @@ fi
 containsElement "${zoo[@]}"
 if [ $? = 1 ] 
 then 
-	echo "$self found in zoo"
+	echo "$self found in zoo" >> ~/startup.log
 	screen -dmS "node" java -Djetty.port=7574 -DzkHost=$zookP -jar start.jar
 	exit 0
 fi
 
+echo "Couldn't find myself" >> ~/startup.log	
