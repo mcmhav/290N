@@ -20,9 +20,6 @@ import argparse
 import paramiko
 
 
-hosts="hosts.txt"
-script="script.sh"
-
 def agent_auth(transport, username):
     """
     Attempt to authenticate to the given transport using any of the private
@@ -184,13 +181,13 @@ for host in hosts:
 
         
         sftp = paramiko.SFTPClient.from_transport(t)
-        sftp.put(script, script)
+        sftp.put(args.script, args.script)
 
 
         print '*** Here we go!'
         print 
         chan = t.open_session()
-        chan.exec_command("chmod +x %s; ./%s %s ;rm %s"%(script, script, script_args, script))
+        chan.exec_command("chmod +x %s; ./%s %s ;rm %s"%(args.script, args.script, script_args, script))
 
         t.close()
 
