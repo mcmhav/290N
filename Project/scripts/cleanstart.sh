@@ -3,7 +3,7 @@
 
 
 echo "***Resets all servers"
-./mtask.py -s reset.sh -i ../supakey.pem -t ../conf/hosts.txt 
+./mtask.py -r -s reset.sh -i ../supakey.pem -t ../conf/hosts.txt 
 
 echo "***Starts all servers" 
 ./start.sh
