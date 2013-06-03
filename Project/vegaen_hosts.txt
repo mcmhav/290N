@@ -41,5 +41,5 @@ ip-10-249-91-4
 
 
 # Poster dns
-
+ec2-54-214-163-235.us-west-2.compute.amazonaws.com
 
