@@ -67,7 +67,7 @@ def manual_auth(username, hostname):
 
 
 parser = argparse.ArgumentParser(prog = 'Multiple task', description = 'Do the same task on multiple servers')
-parser.add_argument('-f', '--foo', help='foo help')
+parser.add_argument('-r', '--remove', action='store_true', help='remove file script from server after running')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.1')
 parser.add_argument('-i', '--identity', nargs='?', help = 'Specify rsa key to use', dest='key_file', default=os.path.join(os.environ['HOME'], '.ssh', 'id_rsa'))
 parser.add_argument('-t', '--hosts', nargs='?', help = 'File with list of hosts', dest='hosts_file', default='hosts.txt')
@@ -76,7 +76,6 @@ parser.add_argument('-o', '--options', nargs=2, action="append", help= 'Add an o
 parser.add_argument('--as-array', nargs=2, action="append", help= 'Adds an option to the script and converts a file to an array of strings' )
 args = parser.parse_args()
 print args
-
 
 script_args = ''
 
@@ -189,7 +188,9 @@ for host in hosts:
         print '*** Here we go!'
         print 
         chan = t.open_session()
-        command = "chmod +x %s; ./%s %s ;rm %s"%(args.script, args.script, script_args, args.script)
+        command = "chmod +x %s; ./%s %s ;"
+        if args.remove:
+            command += "rm %s"%(args.script, args.script, script_args, args.script)
         chan.exec_command(command)
         chan = t.open_session()
         chan.exec_command("echo '%s' >> log.log"%command)
