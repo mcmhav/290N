@@ -41,5 +41,26 @@ ip-10-249-91-4
 
 
 # Poster dns
-ec2-54-214-163-235.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-163-235.us-west-2.compute.amazonaws.com
 
+################################################################
+Version 2
+
+
+ubuntu@ec2-50-112-80-250.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-166-6.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-205-243.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-244-210-103.us-west-2.compute.amazonaws.com
+ubuntu@ec2-54-214-182-189.us-west-2.compute.amazonaws.com
+
+
+#mastar
+ip-10-250-64-252
+
+#zk
+ip-10-224-18-241
+
+#nodes
+ip-10-249-25-136
+ip-10-224-24-217
+ip-10-224-10-60

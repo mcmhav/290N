@@ -194,7 +194,7 @@ for host in hosts:
         if args.screen:
             command += "screen -dmS %s "%args.script
 
-        command +="./%s %s ;"%(args.script, args.script, script_args)
+        command +="./%s %s ;"%(args.script, script_args)
         if args.remove:
             command += "rm %s"%(args.script)
         chan.exec_command(command)
