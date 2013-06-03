@@ -58,6 +58,7 @@ while ((time.time() - starttime )< args.time * 60):
         print "Shuting down..."
         logging.info("Shutting down")
 
+        # Shut down ethernet
         call (['sudo', '/etc/init.d/networking', 'stop'])
         state = DOWN
         
@@ -65,12 +66,11 @@ while ((time.time() - starttime )< args.time * 60):
         print "Starting up"
         logging.info("Starting up")
 
-        # Place startup script here
+        # Start up ethernet
         call (['sudo', '/etc/init.d/networking', 'start'])
         
 
         state = RUNNING 
-
 
 
 call (['sudo', '/etc/init.d/networking', 'start'])
