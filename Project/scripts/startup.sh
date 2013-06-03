@@ -41,6 +41,8 @@ do
 done
 
 self="$HOSTNAME"
+SHARDS=10
+
 
 killall java
 cd solr-4.3.0/build
@@ -61,8 +63,8 @@ zookP="$zookP$master.us-west-2.compute.internal:9983"
 if [ "$self" = "$master" ] 
 then 
 	echo "$self found in master" >> ~/startup.log
-	echo "java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -DnumShards=2 -jar start.jar" >> ~/startup.log
-	screen -dmS "node" java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DnumShards=10 -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -jar start.jar
+	echo "java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -DnumShards=$SHARDS -jar start.jar" >> ~/startup.log
+	screen -dmS "node" java -Dbootstrap_confdir=./solr/collection1/conf -Dcollection.configName=myconf -DnumShards=$SHARDS -DzkRun=$self.us-west-2.compute.internal:9983 -DzkHost=$zookP -jar start.jar
 	exit 0
 fi
 
