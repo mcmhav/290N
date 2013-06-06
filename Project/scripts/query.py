@@ -26,10 +26,10 @@ def signal_handler(signal, frame):
     sys.exit(0)
 
 signal.signal(signal.SIGINT,signal_handler)
-logging.basicConfig(filename='query.log',level=logging.DEBUG, format='%(asctime)s:: %(message)s')
+logging.basicConfig(filename='../query.log',level=logging.DEBUG, format='%(asctime)s:: %(message)s')
 
 parser = argparse.ArgumentParser(description='Automated query.')
-parser.add_argument('-n', type=str, default="54.214.64.252")
+parser.add_argument('-n', type=str, default="54.214.146.26")
 parser.add_argument('-b', type=str, default=1)
 args = parser.parse_args()
 
