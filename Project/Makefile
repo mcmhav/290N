@@ -15,3 +15,6 @@ endif
 push:
 #	rm -f $(RMFILES)
 	git commit -am $(MESSAGE) && git pull && git push
+
+query:
+	cd scripts && clear && rm -f ../query.log && python query.py
