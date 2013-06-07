@@ -41,7 +41,7 @@ do
 done
 
 self="$HOSTNAME"
-SHARDS=20
+SHARDS=5
 
 
 killall java

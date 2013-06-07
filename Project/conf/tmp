@@ -1,20 +1,51 @@
 Public DNS: ec2-54-245-204-115.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-123-187.us-west-2.compute.internal
+Private DNS: ip-10-245-123-187
 Public DNS: ec2-50-112-228-101.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-246-20-244.us-west-2.compute.internal
+Private DNS: ip-10-246-20-244
 Public DNS: ec2-54-214-196-222.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-126-66.us-west-2.compute.internal
+Private DNS: ip-10-245-126-66
 Public DNS: ec2-54-245-202-173.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-88-49.us-west-2.compute.internal
+Private DNS: ip-10-245-88-49
 Public DNS: ec2-54-245-42-127.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-125-239.us-west-2.compute.internal
+Private DNS: ip-10-245-125-239
 Public DNS: ec2-54-214-165-133.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-118-235.us-west-2.compute.internal
+Private DNS: ip-10-245-118-235
 Public DNS: ec2-54-214-208-127.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-107-173.us-west-2.compute.internal
+Private DNS: ip-10-245-107-173
 Public DNS: ec2-54-244-84-44.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-98-59.us-west-2.compute.internal
+Private DNS: ip-10-245-98-59
 Public DNS: ec2-54-244-217-106.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-245-120-32.us-west-2.compute.internal
+Private DNS: ip-10-245-120-32
 Public DNS: ec2-54-214-157-223.us-west-2.compute.amazonaws.com
-Private DNS: ip-10-246-31-66.us-west-2.compute.internal
+Private DNS: ip-10-246-31-66
+Public DNS: ec2-54-214-105-75.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-224-31-54
+Public DNS: ec2-54-214-120-141.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-250-35-176
+Public DNS: ec2-54-214-188-151.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-249-70-97
+Public DNS: ec2-54-214-225-64.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-224-23-153
+Public DNS: ec2-54-214-132-134.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-250-50-244
+Public DNS: ec2-54-214-172-132.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-224-25-93
+Public DNS: ec2-54-214-166-50.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-224-29-138
+Public DNS: ec2-54-245-27-193.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-224-32-60
+Public DNS: ec2-54-245-200-163.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-250-23-157
+Public DNS: ec2-54-244-187-160.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-250-38-248
+
+
+## Poster
+Public DNS: ec2-54-245-218-228.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-250-36-88
+
+
+
+#master
+Public DNS: ec2-54-245-204-115.us-west-2.compute.amazonaws.com
+Private DNS: ip-10-245-123-187
