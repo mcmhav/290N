@@ -18,3 +18,6 @@ push:
 
 query:
 	cd scripts && clear && rm -f ../query.log && python query.py
+
+understandQuery:
+	cd scripts && clear && python understandQueryLog.py
