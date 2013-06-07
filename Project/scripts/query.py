@@ -6,12 +6,9 @@ import subprocess
 import signal
 import logging
 import xml.dom.minidom as minidom
-#from multiprocessing import Process, Queue
 import multiprocessing as mp
 import time
 import timeit
-#from xml.dom.minidom import parse, parseString
-#import xml.etree.ElementTree as ET
 
 def readWords():
 	f = open('../conf/words.txt', 'r')
@@ -29,11 +26,9 @@ signal.signal(signal.SIGINT,signal_handler)
 logging.basicConfig(filename='../query.log',level=logging.DEBUG, format='%(asctime)s:: %(message)s')
 
 parser = argparse.ArgumentParser(description='Automated query.')
-parser.add_argument('-n', type=str, default="54.214.146.26")
+parser.add_argument('-n', type=str, default="54.245.45.15")
 parser.add_argument('-b', type=str, default=1)
 args = parser.parse_args()
-
-#arg ='http://' + args.n + ':8983/solr/collection1/select?q=' + 
 
 words = readWords()
 
@@ -68,21 +63,13 @@ def getWordValues(w, c):
 	values = [status, qtime, query, numFound]
 	logging.info(values)
 
-#q = Queue()
 total = 0
 c = 0
-reset = 50
+reset = 200
 pool = mp.Pool(processes=200)
 startTime = time.time()
 for w in words: 
-	#curl is bottleneck, run in parallel, which makes queries semi-random
 	p = pool.apply_async(getWordValues, (w,c))
-	
-	#p.terminate()
-	#time.sleep(2)
-	#q.put(p)
-	#p.join()
-	#p.terminate()
 
 	c = c + 1
 	total = total + 1
@@ -95,9 +82,6 @@ for w in words:
 		timeTaken = time.time() - startTime
 		
 		logging.info([timeTaken, reset])
-		#while not p.ready():
-		#	time.sleep(5)
-		#p.terminate()	
 		print "done waiting"
 		c = 0
 		startTime = time.time()
