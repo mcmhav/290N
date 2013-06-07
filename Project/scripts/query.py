@@ -26,7 +26,7 @@ signal.signal(signal.SIGINT,signal_handler)
 logging.basicConfig(filename='../query.log',level=logging.DEBUG, format='%(asctime)s:: %(message)s')
 
 parser = argparse.ArgumentParser(description='Automated query.')
-parser.add_argument('-n', type=str, default="54.245.45.15")
+parser.add_argument('-n', type=str, default="54.245.204.115")
 parser.add_argument('-b', type=str, default=1)
 args = parser.parse_args()
 
