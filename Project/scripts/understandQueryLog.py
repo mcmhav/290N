@@ -8,7 +8,7 @@ import logging
 import multiprocessing as mp
 
 parser = argparse.ArgumentParser(description='Understand query.')
-parser.add_argument('-f', type=str, default="query15repl2.log")
+parser.add_argument('-f', type=str, default="query.log")
 parser.add_argument('-b', type=str, default=1)
 args = parser.parse_args()
 
