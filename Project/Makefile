@@ -21,3 +21,9 @@ query:
 
 understandQuery:
 	cd scripts && clear && python understandQueryLog.py
+
+start:
+	cd scripts && clear && ./start.sh
+
+cleanstart:
+	cd scripts && clear && ./cleanstart.sh
